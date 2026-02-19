@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Destiny 2026 | Real-Time Future</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <script src="https://pl28743927.effectivegatecpm.com/a1/21/87/a1218764c4e29e169e494177e0723c4c.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+        :root { --p: #ff0055; --s: #00f2ff; --bg: #050510; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg); color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        
+        .live-bar { width: 100%; max-width: 450px; background: rgba(0,242,255,0.1); border: 1px solid var(--s); padding: 10px; border-radius: 12px; font-size: 11px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .dot { height: 8px; width: 8px; background: #00ff00; border-radius: 50%; animation: blink 1s infinite; }
+        @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 25px; width: 100%; max-width: 420px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        h1 { font-size: 24px; font-weight: 800; background: linear-gradient(45deg, var(--p), var(--s)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        
+        input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 15px; border: 1px solid #333; background: #000; color: #fff; font-size: 16px; outline: none; }
+        .btn { width: 100%; padding: 18px; border: none; border-radius: 15px; background: linear-gradient(45deg, var(--p), #ff4d00); color: #fff; font-size: 17px; font-weight: 800; cursor: pointer; margin-top: 10px; box-shadow: 0 8px 15px rgba(255,0,85,0.3); transition: 0.3s; }
+        .btn:disabled { background: #444; box-shadow: none; cursor: not-allowed; opacity: 0.7; }
+
+        .ad-slot { margin: 15px 0; min-height: 50px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px dashed #555; overflow: hidden; }
+        
+        #screen-wait, #screen-result { display: none; }
+        
+        .timer-circle { width: 80px; height: 80px; line-height: 80px; border: 4px solid var(--s); border-radius: 50%; margin: 20px auto; font-size: 24px; font-weight: bold; color: var(--s); box-shadow: 0 0 15px var(--s); }
+        
+        .res-content { filter: blur(10px); transition: 0.8s; user-select: none; }
+        .unblur { filter: blur(0); user-select: auto; }
+        
+        .wa-share { background: #25D366 !important; text-decoration: none; display: none; align-items: center; justify-content: center; gap: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="live-bar">
+        <span class="dot"></span> <span id="feedText">Firebase Cloud Connected...</span>
+    </div>
+
+    <div class="card">
+        <div id="screen-input">
+            <h1>Destiny AI 2026</h1>
+            <div class="ad-slot">
+                <script async="async" data-cfasync="false" src="https://pl28743930.effectivegatecpm.com/16a7b68d6fbb9bede8be362f909e17d4/invoke.js"></script>
+                <div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div>
+            </div>
+            <input type="text" id="uName" placeholder="आपका नाम">
+            <input type="text" id="pName" placeholder="पार्टनर का नाम">
+            <button class="btn" onclick="startTimer()">Calculate Future ✨</button>
+        </div>
+
+        <div id="screen-wait">
+            <h2>Generating Report...</h2>
+            <div class="timer-circle" id="timerBox">15</div>
+            <p id="waitMsg" style="font-size: 12px; color: var(--s);">Analyzing compatibility...</p>
+            <div class="ad-slot"><div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div></div>
+            <p style="font-size: 10px; opacity: 0.6;">Please wait while AI calculates the 2026 destiny</p>
+        </div>
+
+        <div id="screen-result">
+            <h2 id="finalTitle">🔒 Result Locked</h2>
+            <div class="ad-slot"><div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div></div>
+            
+            <div class="res-content" id="resContent">
+                <div style="font-size: 40px; font-weight: 900; color: var(--s);" id="resMatch">--%</div>
+                <p id="resDesc" style="font-size: 14px; margin: 15px 0; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px;"></p>
+            </div>
+
+            <button id="unlockBtn" class="btn" onclick="finalUnlock()" disabled>Wait <span id="btnTimer">15</span>s...</button>
+            <a id="waLink" href="#" target="_blank" class="btn wa-share">WhatsApp Share 🚀</a>
+            <p onclick="location.reload()" style="font-size: 11px; margin-top: 15px; cursor: pointer; opacity: 0.5;">Check Another ↩️</p>
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_TgD0pkX9dXhltLxOo3t2kHam5fbRRwg",
+            authDomain: "love-prediction-ca9d0.firebaseapp.com",
+            projectId: "love-prediction-ca9d0",
+            storageBucket: "love-prediction-ca9d0.firebasestorage.app",
+            messagingSenderId: "457590002697",
+            appId: "1:457590002697:web:45f550eccaae6542e914d8",
+            measurementId: "G-FBWZXWQNQD"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let count = 15;
+        let u, p;
+
+        function startTimer() {
+            u = document.getElementById('uName').value;
+            p = document.getElementById('pName').value;
+            if(!u || !p) return alert("Enter Names!");
+
+            document.getElementById('screen-input').style.display = 'none';
+            document.getElementById('screen-wait').style.display = 'block';
+
+            // Firebase Save
+            db.collection("love_entries").add({ user: u, partner: p, timestamp: new Date() });
+
+            const messages = ["Matching Stars...", "Neural Syncing...", "Finalizing Destiny...", "Report Ready!"];
+            let msgIdx = 0;
+
+            const countdown = setInterval(() => {
+                count--;
+                document.getElementById('timerBox').innerText = count;
+                document.getElementById('btnTimer').innerText = count;
+                
+                if(count % 4 === 0) {
+                    document.getElementById('waitMsg').innerText = messages[msgIdx];
+                    msgIdx++;
+                }
+
+                if(count <= 0) {
+                    clearInterval(countdown);
+                    showLockedResult();
+                }
+            }, 1000);
+        }
+
+        function showLockedResult() {
+            document.getElementById('screen-wait').style.display = 'none';
+            document.getElementById('screen-result').style.display = 'block';
+            
+            const score = Math.floor(Math.random() * 20) + 80;
+            document.getElementById('resMatch').innerText = score + "% Match";
+            document.getElementById('resDesc').innerText = `2026 Prediction: ${u} aur ${p} ki jodi bohot lucky sabit hogi. Aapke bich prem badhega aur naye avsar milenge!`;
+            
+            const btn = document.getElementById('unlockBtn');
+            btn.innerText = "Unlock Result Now 🔓";
+            btn.disabled = false;
+
+            const waMsg = encodeURIComponent(`OMG! 😱 AI ne meri aur ${p} ki 2026 prediction ki! Result dekhne ke liye yahan click karein: ${window.location.href}`);
+            document.getElementById('waLink').href = "https://api.whatsapp.com/send?text=" + waMsg;
+        }
+
+        function finalUnlock() {
+            document.getElementById('resContent').classList.add('unblur');
+            document.getElementById('finalTitle').innerText = "✅ Result Unlocked";
+            document.getElementById('unlockBtn').style.display = 'none';
+            document.getElementById('waLink').style.display = 'flex';
+            
+            // Popunder trigger
+            setTimeout(() => {
+                let s = document.createElement('script');
+                s.src = "https://pl28721831.effectivegatecpm.com/1c/b1/38/1cb138209d61c0fae7baad1c3b2c9d7b.js";
+                document.body.appendChild(s);
+            }, 2000);
+        }
+
+        // Live Feed from Firestore
+        db.collection("love_entries").orderBy("timestamp", "desc").limit(1).onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+                if (change.type === "added") {
+                    const data = change.doc.data();
+                    document.getElementById('feedText').innerHTML = `🔥 <b>${data.user}</b> checked for <b>${data.partner}</b>`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
