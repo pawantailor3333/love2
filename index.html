@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Love Destiny 2026 | Multi-Future</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://pl28743927.effectivegatecpm.com/a1/21/87/a1218764c4e29e169e494177e0723c4c.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+        :root { --p: #ff0055; --s: #00f2ff; --bg: #0a0014; }
+        
+        body { background: var(--bg); color: #fff; font-family: 'Poppins', sans-serif; margin: 0; overflow-x: hidden; }
+        
+        /* Floating Hearts Animation */
+        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .heart { position: absolute; color: rgba(255, 0, 85, 0.3); animation: float 6s infinite linear; }
+        @keyframes float { from { transform: translateY(100vh) scale(0.5); opacity: 1; } to { transform: translateY(-10vh) scale(1.5); opacity: 0; } }
+
+        .container { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        
+        .card { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(15px); border-radius: 30px; padding: 25px; width: 100%; max-width: 420px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+
+        h1 { font-size: 28px; font-weight: 800; background: linear-gradient(45deg, var(--p), var(--s)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 10px 0; }
+        
+        input { width: 100%; padding: 15px; margin: 8px 0; border-radius: 15px; border: 1px solid #333; background: #000; color: #fff; font-size: 16px; text-align: center; }
+        
+        .btn { width: 100%; padding: 18px; border: none; border-radius: 15px; background: linear-gradient(45deg, var(--p), #ff4d00); color: #fff; font-size: 17px; font-weight: 800; cursor: pointer; margin-top: 10px; }
+        
+        .ad-slot { margin: 15px 0; min-height: 80px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px dashed #444; overflow: hidden; }
+        
+        /* Category Grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .grid-item { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; border: 1px solid #444; cursor: pointer; transition: 0.3s; }
+        .grid-item:hover { border-color: var(--s); transform: scale(1.05); }
+        .grid-item span { font-size: 30px; display: block; margin-bottom: 5px; }
+
+        /* Alphabet List */
+        .alphabet-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 15px; }
+        .letter { width: 40px; height: 40px; line-height: 40px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333; cursor: pointer; font-weight: 800; }
+        .letter:hover { background: var(--p); }
+
+        .screen { display: none; }
+        .active { display: block; }
+        
+        .timer-box { font-size: 35px; color: var(--s); font-weight: 800; margin: 20px 0; }
+        .res-text { font-size: 16px; line-height: 1.6; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 15px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="heartContainer"></div>
+
+    <div class="container">
+        <div class="card">
+            
+            <div id="step-names">
+                <h1>Destiny AI 2026 ❤️</h1>
+                <input type="text" id="uName" placeholder="आपका नाम लिखें">
+                <input type="text" id="pName" placeholder="पार्टनर का नाम लिखें">
+                
+                <div class="ad-slot">
+                    <script async="async" data-cfasync="false" src="https://pl28743930.effectivegatecpm.com/16a7b68d6fbb9bede8be362f909e17d4/invoke.js"></script>
+                    <div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div>
+                </div>
+
+                <div class="grid">
+                    <div class="grid-item" onclick="chooseFuture('marriage')"><span>💍</span>शादी भविष्य</div>
+                    <div class="grid-item" onclick="chooseFuture('love')"><span>❤️</span>लव लाइफ</div>
+                    <div class="grid-item" onclick="chooseFuture('career')"><span>🔥</span>करियर + प्यार</div>
+                    <div class="grid-item" onclick="chooseFuture('alphabet')"><span>🔠</span>A-Z भविष्य</div>
+                </div>
+            </div>
+
+            <div id="screen-timer" class="screen">
+                <h2 id="waitTitle">Analyzing Destiny...</h2>
+                <div class="timer-box" id="timer">10</div>
+                <div class="ad-slot"><div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div></div>
+                <p style="font-size: 11px; opacity: 0.7;">AI सितारे और ग्रहों की गणना कर रहा है...</p>
+            </div>
+
+            <div id="screen-alphabet" class="screen">
+                <h2>अपने नाम का पहला अक्षर चुनें</h2>
+                <div class="alphabet-list" id="letterContainer"></div>
+                <button class="btn" style="background:#444;" onclick="goHome()">पीछे जाएं</button>
+            </div>
+
+            <div id="screen-result" class="screen">
+                <h2 id="resHeader">✨ भविष्य फल ✨</h2>
+                <div class="ad-slot"><div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div></div>
+                <div class="res-text" id="resBody"></div>
+                <button class="btn" style="background:#25D366" onclick="shareWA()">व्हाट्सएप पर शेयर करें 🚀</button>
+                <p onclick="goHome()" style="margin-top:20px; cursor:pointer; font-size:12px; opacity:0.6;">कोई और भविष्य देखें ↩️</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_TgD0pkX9dXhltLxOo3t2kHam5fbRRwg",
+            authDomain: "love-prediction-ca9d0.firebaseapp.com",
+            projectId: "love-prediction-ca9d0",
+            storageBucket: "love-prediction-ca9d0.firebasestorage.app",
+            messagingSenderId: "457590002697",
+            appId: "1:457590002697:web:45f550eccaae6542e914d8",
+            measurementId: "G-FBWZXWQNQD"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let currentType = '';
+        let uName, pName;
+
+        // Hearts Animation
+        function createHeart() {
+            const h = document.createElement('div');
+            h.classList.add('heart');
+            h.innerHTML = '❤️';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.getElementById('heartContainer').appendChild(h);
+            setTimeout(() => h.remove(), 6000);
+        }
+        setInterval(createHeart, 300);
+
+        // Alphabet List Init
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        const lc = document.getElementById('letterContainer');
+        letters.forEach(l => {
+            let div = document.createElement('div');
+            div.classList.add('letter');
+            div.innerText = l;
+            div.onclick = () => showAlphabetFuture(l);
+            lc.appendChild(div);
+        });
+
+        function chooseFuture(type) {
+            uName = document.getElementById('uName').value;
+            pName = document.getElementById('pName').value;
+            
+            if(type !== 'alphabet' && (!uName || !pName)) return alert("कृपया दोनों नाम भरें!");
+            
+            currentType = type;
+            if(type === 'alphabet') {
+                switchScreen('screen-alphabet');
+            } else {
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            switchScreen('screen-timer');
+            let t = 10;
+            const log = ["सितारों की गणना...", "2026 का मैप लोड हो रहा है...", "अंतिम परिणाम तैयार!"];
+            
+            const itv = setInterval(() => {
+                t--;
+                document.getElementById('timer').innerText = t;
+                if(t % 3 === 0) document.getElementById('waitTitle').innerText = log[Math.floor(Math.random()*log.length)];
+                
+                if(t <= 0) {
+                    clearInterval(itv);
+                    generateResult();
+                }
+            }, 1000);
+        }
+
+        function generateResult() {
+            switchScreen('screen-result');
+            let res = "";
+            const randomScore = Math.floor(Math.random() * 20) + 80;
+
+            if(currentType === 'marriage') {
+                res = `AI के अनुसार ${uName} और ${pName} की शादी के सितारे 2026 में बहुत मजबूत हैं। आप दोनों की जोड़ी ${randomScore}% परफेक्ट है और घरवाले जल्द मान जाएंगे!`;
+            } else if(currentType === 'love') {
+                res = `2026 में ${uName} और ${pName} का प्यार परवान चढ़ेगा। जुलाई का महीना आप दोनों के लिए बेहद रोमांटिक रहेगा और आप कहीं लंबी यात्रा पर जाएंगे। ❤️`;
+            } else {
+                res = `आपका करियर और ${pName} का साथ मिलकर 2026 में बड़ी सफलता लाएगा। धन और प्यार दोनों का संगम होने वाला है!`;
+            }
+
+            document.getElementById('resBody').innerText = res;
+            saveFirebase(uName, pName, currentType);
+            triggerPop();
+        }
+
+        function showAlphabetFuture(l) {
+            currentType = "Alphabet-" + l;
+            switchScreen('screen-result');
+            const futures = [
+                "आज का दिन आपके लिए खुशियों भरा रहेगा, प्यार में जीत मिलेगी।",
+                "थोड़ा संभल कर रहें, कोई पुराना दोस्त मिल सकता है।",
+                "आर्थिक लाभ के योग हैं और पार्टनर से सरप्राइज मिलेगा।",
+                "2026 आपके लिए साल का सबसे बेहतरीन साल साबित होने वाला है।"
+            ];
+            document.getElementById('resBody').innerText = ` '${l}' नाम वाले लोगों के लिए 2026: ${futures[Math.floor(Math.random()*futures.length)]}`;
+            triggerPop();
+        }
+
+        function switchScreen(id) {
+            document.querySelectorAll('.screen, #step-names').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function goHome() { location.reload(); }
+
+        function saveFirebase(u, p, t) {
+            db.collection("all_predictions").add({ user: u, partner: p, type: t, time: new Date() });
+        }
+
+        function triggerPop() {
+            setTimeout(() => {
+                let s = document.createElement('script');
+                s.src = "https://pl28721831.effectivegatecpm.com/1c/b1/38/1cb138209d61c0fae7baad1c3b2c9d7b.js";
+                document.body.appendChild(s);
+            }, 3000);
+        }
+
+        function shareWA() {
+            const text = encodeURIComponent("ओ तेरी! 😱 मैंने अपना 2026 का भविष्य देखा, आप भी चेक करो: " + window.location.href);
+            window.open("https://api.whatsapp.com/send?text=" + text);
+        }
+    </script>
+</body>
+</html>
