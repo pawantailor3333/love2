@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 भविष्यवाणी | लव और शादी</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+        body { font-family: 'Noto Sans Devanagari', sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; min-height: 100vh; }
+        
+        /* Sticky Top Input */
+        .top-input { background: #1a001a; padding: 15px; text-align: center; color: white; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid #ff2d75; }
+        input { width: 85%; padding: 10px; margin: 5px 0; border-radius: 8px; border: 2px solid #ff2d75; text-align: center; font-size: 15px; }
+
+        .article-card { padding: 15px; }
+        .ad-slot { background: #f9f9f9; border: 1px dashed #ccc; margin: 15px 0; min-height: 90px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        
+        .btn { background: #ff2d75; color: white; border: none; padding: 15px; border-radius: 50px; width: 90%; font-weight: bold; font-size: 17px; cursor: pointer; margin: 10px auto; display: block; text-decoration: none; text-align: center; }
+        .btn-wa { background: #25D366; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+        .screen { display: none; }
+        .active { display: block; }
+
+        /* Lock Overlay Style */
+        #locked-res { filter: blur(4px); pointer-events: none; user-select: none; }
+        .unlock-area { text-align: center; padding: 20px; background: #fff5f8; border: 2px dashed #ff2d75; border-radius: 15px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-input">
+        <input type="text" id="uName" placeholder="अपना नाम लिखें...">
+        <input type="text" id="pName" placeholder="पार्टनर का नाम (Optional)">
+    </div>
+
+    <div class="ad-slot">
+        <script async="async" data-cfasync="false" src="https://pl28743930.effectivegatecpm.com/16a7b68d6fbb9bede8be362f909e17d4/invoke.js"></script>
+        <div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div>
+    </div>
+
+    <div id="scr-home" class="screen active">
+        <div class="article-card">
+            <h1 style="color:#b0003a;">2026 लव राशिफल: क्या आपकी शादी फिक्स होगी?</h1>
+            <p>ज्योतिष के अनुसार 2026 का साल आपके जीवन में बड़ा बदलाव लाएगा। अपना भविष्य जानने के लिए नीचे बटन पर क्लिक करें।</p>
+            <button class="btn" onclick="startProcess()">भविष्यवाणी देखें ➔</button>
+        </div>
+    </div>
+
+    <div id="scr-load" class="screen">
+        <div class="article-card" style="text-align:center;">
+            <h2>ग्रहों की गणना चालू है...</h2>
+            <div id="timer" style="font-size:45px; color:#ff2d75; font-weight:bold;">10</div>
+            <div class="ad-slot"><div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div></div>
+        </div>
+    </div>
+
+    <div id="scr-res" class="screen">
+        <div class="article-card">
+            <h2 style="text-align:center;">✨ आपका भविष्य फल ✨</h2>
+            
+            <div id="locked-res">
+                <p><b>नाम:</b> <span id="resName"></span></p>
+                <p><b>भविष्यवाणी:</b> 2026 में आपका भाग्य बहुत प्रबल है। आपकी शादी की तारीख बहुत करीब है और आपका पार्टनर...</p>
+            </div>
+
+            <div id="unlock-box" class="unlock-area">
+                <p style="color:#ff2d75; font-weight:bold;">रिजल्ट अभी लॉक है! 🔒</p>
+                <p style="font-size:12px;">पूरा रिजल्ट देखने के लिए नीचे बटन पर क्लिक करें।</p>
+                <button class="btn" onclick="unlockNow()">पूरा रिजल्ट अनलॉक करें 🔓</button>
+            </div>
+
+            <div id="full-res" style="display:none; padding:15px; background:#e8f5e9; border-radius:10px; border:2px solid #4caf50;">
+                <p id="actualMsg"></p>
+                <p style="color:green; font-weight:bold;">✓ रिजल्ट सफलतापूर्वक अनलॉक हो गया!</p>
+            </div>
+
+            <div class="ad-slot"><div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div></div>
+            
+            <button class="btn btn-wa" onclick="shareWA()">WhatsApp पर शेयर करें</button>
+            <button class="btn btn-insta" onclick="shareInsta()">Instagram पर भेजें</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Firebase Config (Aapki purani config yahan paste karein)
+    const firebaseConfig = {
+        apiKey: "AIzaSyC_TgD0pkX9dXhltLxOo3t2kHam5fbRRwg",
+        authDomain: "love-prediction-ca9d0.firebaseapp.com",
+        projectId: "love-prediction-ca9d0",
+        storageBucket: "love-prediction-ca9d0.firebasestorage.app",
+        messagingSenderId: "457590002697",
+        appId: "1:457590002697:web:45f550eccaae6542e914d8",
+        measurementId: "G-FBWZXWQNQD"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const directLink = "https://www.effectivegatecpm.com/yct5qaruui?key=3ecd9211875b400491fea171225148cc";
+
+    function startProcess() {
+        const name = document.getElementById('uName').value;
+        if(!name) return alert("नाम लिखें!");
+        
+        document.getElementById('scr-home').classList.remove('active');
+        document.getElementById('scr-load').classList.add('active');
+
+        let t = 10;
+        const iv = setInterval(() => {
+            t--;
+            document.getElementById('timer').innerText = t;
+            if(t <= 0) {
+                clearInterval(iv);
+                showResult();
+            }
+        }, 1000);
+    }
+
+    function showResult() {
+        const u = document.getElementById('uName').value;
+        const p = document.getElementById('pName').value || "पार्टuner";
+        document.getElementById('scr-load').classList.remove('active');
+        document.getElementById('scr-res').classList.add('active');
+        
+        document.getElementById('resName').innerText = u;
+        document.getElementById('actualMsg').innerText = `बधाई हो ${u}! 2026 में ${p} के साथ आपका रिश्ता अटूट रहेगा और आपकी शादी के योग नवंबर 2026 में बन रहे हैं।`;
+        
+        db.collection("final_clicks").add({ user: u, partner: p, time: new Date() });
+    }
+
+    function unlockNow() {
+        // Step 1: Open Direct Link in New Tab
+        window.open(directLink, '_blank');
+        
+        // Step 2: Unlock the content in current page
+        setTimeout(() => {
+            document.getElementById('locked-res').style.display = 'none';
+            document.getElementById('unlock-box').style.display = 'none';
+            document.getElementById('full-res').style.display = 'block';
+        }, 1000);
+    }
+
+    function shareWA() {
+        const text = encodeURIComponent("भाई! मैंने अपना 2026 का भविष्य देखा। तुम भी देखो: " + window.location.href);
+        window.open("https://api.whatsapp.com/send?text=" + text);
+    }
+
+    function shareInsta() {
+        // Instagram doesn't support direct text sharing like WA, so we open Direct Messages
+        alert("Instagram पर अपने दोस्तों को लिंक भेजें!");
+        window.open("https://www.instagram.com/direct/inbox/", "_blank");
+    }
+</script>
+
+</body>
+</html>
