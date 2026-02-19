@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love AI Coin Edition 2026</title>
+
+<style>
+:root{
+--primary:#ff4d6d;
+--gold:#ffcc00;
+--glass:rgba(255,255,255,0.12);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial}
+
+body{
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+padding:10px;
+}
+
+.container{width:100%;max-width:420px}
+
+.card{
+background:var(--glass);
+backdrop-filter:blur(18px);
+border-radius:25px;
+padding:20px;
+text-align:center;
+box-shadow:0 8px 30px rgba(0,0,0,0.4);
+position:relative;
+}
+
+.live{
+position:absolute;
+top:15px;
+right:15px;
+background:red;
+padding:4px 10px;
+border-radius:20px;
+font-size:11px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:1}50%{opacity:.5}100%{opacity:1}
+}
+
+h1{
+font-size:22px;
+margin:10px 0;
+background:linear-gradient(to right,#ff4d6d,#ffb3c1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.3);
+background:rgba(255,255,255,0.1);
+color:#fff;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+margin-top:10px;
+background:linear-gradient(45deg,#ff4d6d,#ff758f);
+color:#fff;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+#loading,#result{display:none}
+
+.loader{
+width:50px;height:50px;
+border:4px solid rgba(255,255,255,0.1);
+border-top:4px solid var(--primary);
+border-radius:50%;
+margin:0 auto 15px;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{100%{transform:rotate(360deg)}}
+
+.progress-bg{
+background:rgba(255,255,255,0.1);
+height:6px;border-radius:4px;margin-top:10px;
+}
+
+.progress{width:0%;height:6px;background:var(--primary);border-radius:4px}
+
+.percent{
+font-size:55px;font-weight:900;color:var(--primary);margin:15px 0;
+}
+
+.blur{filter:blur(12px);transition:.8s}
+.reveal{filter:blur(0)!important}
+
+.coin-box{
+margin-top:15px;
+background:rgba(0,0,0,0.3);
+padding:12px;
+border-radius:15px;
+}
+
+.coin-count{
+font-size:35px;
+color:var(--gold);
+font-weight:bold;
+}
+
+.withdraw-box{
+margin-top:15px;
+background:rgba(255,255,255,0.08);
+padding:10px;
+border-radius:12px;
+font-size:13px;
+}
+
+.bar-bg{
+background:rgba(255,255,255,0.1);
+height:6px;
+border-radius:4px;
+margin-top:6px;
+}
+
+.bar-fill{
+height:6px;
+background:var(--gold);
+width:0%;
+border-radius:4px;
+}
+
+.timer{
+margin-top:10px;
+font-size:12px;
+color:var(--gold);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="card">
+
+<div class="live">LIVE: <span id="liveCount">562</span></div>
+
+<div id="form">
+<h1>Love AI Coin 2026 💖</h1>
+<p style="font-size:12px;color:var(--gold)">⚠️ Only 5 rewards remaining</p>
+
+<input type="text" id="n1" placeholder="Your Name">
+<input type="text" id="n2" placeholder="Crush Name">
+
+<button onclick="start()">CHECK RESULT</button>
+</div>
+
+<div id="loading">
+<div class="loader"></div>
+<h3>Analyzing Love Energy...</h3>
+<div class="progress-bg"><div class="progress" id="bar"></div></div>
+</div>
+
+<div id="result">
+<h1>Your 2026 Result</h1>
+
+<div id="content" class="blur">
+<div class="percent" id="percent">0%</div>
+<p id="message"></p>
+</div>
+
+<button onclick="unlock()">TAP TO REVEAL 🔓</button>
+
+<div class="coin-box" id="coinBox" style="display:none">
+<h3>🎉 You Earned</h3>
+<div class="coin-count"><span id="newCoins">0</span> 💰</div>
+<button onclick="claimCoins()">CLAIM COINS</button>
+</div>
+
+<div class="withdraw-box">
+<div>Total Coins: <span id="totalCoins">0</span> / 500</div>
+<div class="bar-bg"><div class="bar-fill" id="withdrawBar"></div></div>
+<button onclick="withdraw()">WITHDRAW</button>
+<div id="withdrawMsg" style="margin-top:6px;color:var(--gold)"></div>
+</div>
+
+<div class="timer" id="timer"></div>
+
+<button onclick="location.reload()" style="background:rgba(255,255,255,0.2)">TRY AGAIN</button>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+if(!localStorage.getItem("coins")){
+localStorage.setItem("coins",0);
+}
+
+updateTotal();
+
+setInterval(()=>{
+liveCount.innerText=Math.floor(Math.random()*500)+300;
+},2500);
+
+function start(){
+if(!n1.value||!n2.value){alert("Enter names");return;}
+form.style.display="none";
+loading.style.display="block";
+let p=0;
+let iv=setInterval(()=>{
+p+=2;
+bar.style.width=p+"%";
+if(p>=100){clearInterval(iv);show();}
+},40);
+}
+
+function show(){
+loading.style.display="none";
+result.style.display="block";
+
+let score=Math.floor(Math.random()*30)+70;
+let count=0;
+let counter=setInterval(()=>{
+count++;
+percent.innerText=count+"%";
+if(count>=score)clearInterval(counter);
+},20);
+
+message.innerText=n1.value+", 2026 me tumhari love life strong hone wali hai ❤️";
+
+setTimeout(()=>{
+coinBox.style.display="block";
+animateCoins();
+},1500);
+
+startTimer();
+}
+
+function unlock(){
+content.classList.add("reveal");
+}
+
+function animateCoins(){
+let target=Math.floor(Math.random()*200)+150;
+let count=0;
+let iv=setInterval(()=>{
+count+=5;
+newCoins.innerText=count;
+if(count>=target){
+clearInterval(iv);
+newCoins.innerText=target;
+}
+},20);
+}
+
+function claimCoins(){
+let current=parseInt(localStorage.getItem("coins"));
+let earned=parseInt(newCoins.innerText);
+current+=earned;
+localStorage.setItem("coins",current);
+updateTotal();
+newCoins.innerText="0";
+}
+
+function updateTotal(){
+let total=parseInt(localStorage.getItem("coins"));
+totalCoins.innerText=total;
+let percentFill=Math.min((total/500)*100,100);
+withdrawBar.style.width=percentFill+"%";
+}
+
+function withdraw(){
+let total=parseInt(localStorage.getItem("coins"));
+if(total>=500){
+withdrawMsg.innerText="🎉 Withdraw request submitted!";
+}else{
+withdrawMsg.innerText="🔒 Minimum 500 coins required!";
+}
+}
+
+function startTimer(){
+let t=120;
+let iv=setInterval(()=>{
+if(t<=0)clearInterval(iv);
+let m=Math.floor(t/60);
+let s=t%60;
+timer.innerText="⏳ Reward expires in "+m+":"+(s<10?"0"+s:s);
+t--;
+},1000);
+}
+
+</script>
+
+</body>
+</html>
