@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Love Predictor 2026 | Future Discovery</title>
+    <script src="https://pl28743927.effectivegatecpm.com/a1/21/87/a1218764c4e29e169e494177e0723c4c.js"></script>
+    <style>
+        :root {
+            --primary: #ff2a6d;
+            --secondary: #05d9e8;
+            --bg: #01012b;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body {
+            background: var(--bg);
+            background-image: radial-gradient(circle at 20% 30%, #1a1a4d 0%, transparent 40%), 
+                              radial-gradient(circle at 80% 70%, #4d0a26 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow-x: hidden;
+            padding: 15px;
+        }
+        /* Floating Hearts Background */
+        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .heart { position: absolute; color: rgba(255, 42, 109, 0.2); animation: float 10s infinite linear; }
+        @keyframes float { 
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .main-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 30px;
+            padding: 25px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 10;
+            position: relative;
+        }
+        .badge {
+            background: linear-gradient(90deg, #ff2a6d, #ff6b6b);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        h1 { font-size: 28px; margin-bottom: 5px; letter-spacing: -1px; }
+        .tagline { font-size: 12px; opacity: 0.7; margin-bottom: 25px; }
+
+        .input-box { margin-bottom: 20px; text-align: left; }
+        label { display: block; font-size: 11px; margin-bottom: 8px; color: var(--secondary); text-transform: uppercase; font-weight: 700; }
+        input, select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        input:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 15px rgba(5, 217, 232, 0.2); }
+
+        .glow-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #ff2a6d, #ff6b6b);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .glow-btn::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg); animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer { 0% { left: -100%; } 100% { left: 100%; } }
+
+        #scan-box { display: none; padding: 40px 0; }
+        .scan-line { width: 100%; height: 2px; background: var(--secondary); box-shadow: 0 0 15px var(--secondary); position: relative; animation: scan 2s infinite ease-in-out; }
+        @keyframes scan { 0% { top: 0; } 50% { top: 100px; } 100% { top: 0; } }
+        .ai-log { font-family: monospace; font-size: 10px; color: var(--secondary); margin-top: 20px; height: 20px; }
+
+        #result-box { display: none; }
+        .blur-result { filter: blur(15px); pointer-events: none; transition: 1s ease; }
+        .revealed { filter: blur(0) !important; pointer-events: all !important; }
+        .score { font-size: 70px; font-weight: 900; color: var(--primary); text-shadow: 0 0 20px rgba(255,42,109,0.5); }
+        
+        .wa-btn {
+            background: #25D366 !important;
+            margin-top: 15px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .notif {
+            position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%);
+            background: #fff; color: #000; padding: 10px 20px; border-radius: 50px;
+            font-size: 12px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1000; transition: 0.5s; display: flex; align-items: center; gap: 8px;
+        }
+        .notif.active { bottom: 25px; }
+        .ad-space { margin-top: 20px; min-height: 60px; background: rgba(0,0,0,0.2); border-radius: 10px; overflow: hidden; }
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="hearts-container"></div>
+
+    <div class="main-card">
+        <div class="badge">Live Users: <span id="online-count">642</span></div>
+        
+        <div id="start-screen">
+            <h1>Love AI 2026</h1>
+            <p class="tagline">Advanced Neural Compatibility Engine</p>
+            
+            <div class="input-box">
+                <label>Your Full Name</label>
+                <input type="text" id="n1" placeholder="Enter your name...">
+            </div>
+            <div class="input-box">
+                <label>Crush / Partner Name</label>
+                <input type="text" id="n2" placeholder="Enter their name...">
+            </div>
+            <div class="input-box">
+                <label>Relation Potential</label>
+                <select id="rel">
+                    <option>Deep Friendship</option>
+                    <option>Secret Crush</option>
+                    <option>Serious Relationship</option>
+                    <option>Complicated</option>
+                </select>
+            </div>
+
+            <button class="glow-btn" onclick="runAI()">ANALYZE FUTURE 🔮</button>
+            
+            <div class="ad-space">
+                <script async="async" data-cfasync="false" src="https://pl28743930.effectivegatecpm.com/16a7b68d6fbb9bede8be362f909e17d4/invoke.js"></script>
+                <div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div>
+            </div>
+        </div>
+
+        <div id="scan-box">
+            <div class="scan-line"></div>
+            <h2 style="margin-top:30px;">AI Scanning...</h2>
+            <div class="ai-log" id="log-text">Initializing quantum link...</div>
+            <div style="width:100%; height:4px; background:rgba(255,255,255,0.1); margin-top:20px; border-radius:10px; overflow:hidden;">
+                <div id="progress" style="width:0%; height:100%; background:var(--secondary); transition: 0.1s;"></div>
+            </div>
+        </div>
+
+        <div id="result-box">
+            <h2 id="result-header">Scan Complete!</h2>
+            <div id="blur-area" class="blur-result">
+                <div class="score" id="final-score">85%</div>
+                <p id="prediction-text" style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;"></p>
+            </div>
+
+            <button id="unlock-btn" class="glow-btn" onclick="reveal()">UNLOCK 2026 PREDICTION 🔓</button>
+            
+            <a id="whatsapp-link" href="#" target="_blank" class="glow-btn wa-btn">
+                SHARE ON WHATSAPP 🚀
+            </a>
+
+            <p onclick="location.reload()" style="font-size:12px; margin-top:15px; cursor:pointer; opacity:0.6;">Check another person?</p>
+            
+            <div class="ad-space">
+                <div id="container-16a7b68d6fbb9bede8be362f909e17d4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notif" id="popup-notif">❤️ Someone just checked their result!</div>
+
+    <script>
+        // Create Floating Hearts
+        const heartContainer = document.getElementById('hearts-container');
+        for(let i=0; i<15; i++) {
+            let h = document.createElement('div');
+            h.className = 'heart';
+            h.innerHTML = '❤️';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.animationDelay = Math.random() * 10 + 's';
+            h.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heartContainer.appendChild(h);
+        }
+
+        // Live User Count
+        setInterval(() => {
+            document.getElementById('online-count').innerText = Math.floor(Math.random() * 200) + 500;
+        }, 3000);
+
+        // Fake Notifications
+        const names = ["Aman", "Neha", "Priya", "Rohit", "Sneha", "Kabir", "Ishita"];
+        setInterval(() => {
+            if(Math.random() > 0.6) {
+                document.getElementById('popup-notif').innerText = `❤️ ${names[Math.floor(Math.random()*names.length)]} just found their match!`;
+                document.getElementById('popup-notif').classList.add('active');
+                setTimeout(() => document.getElementById('popup-notif').classList.remove('active'), 3000);
+            }
+        }, 8000);
+
+        function runAI() {
+            const n1 = document.getElementById('n1').value;
+            const n2 = document.getElementById('n2').value;
+            if(!n1 || !n2) return alert("Please enter both names!");
+
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('scan-box').style.display = 'block';
+
+            let p = 0;
+            const logs = ["Analyzing names...", "Syncing 2026 Timelines...", "Calculating Soul-Bond...", "Reading Destiny...", "Generating Report..."];
+            const progBar = document.getElementById('progress');
+            const logElement = document.getElementById('log-text');
+
+            let interval = setInterval(() => {
+                p += 1;
+                progBar.style.width = p + "%";
+                if(p % 20 === 0) logElement.innerText = logs[Math.floor(p/21)];
+                
+                if(p >= 100) {
+                    clearInterval(interval);
+                    showResult(n1, n2);
+                }
+            }, 50);
+        }
+
+        function showResult(n1, n2) {
+            const score = Math.floor(Math.random() * 35) + 65;
+            const predictions = [
+                `In late 2026, ${n2} will realize how important you are. A deep conversation is coming!`,
+                `The stars suggest a surprise trip for you and ${n2} in the summer of 2026.`,
+                `Compatibility is high! By 2026, you both will share a bond that no one can break.`,
+                `${n1} and ${n2} are meant for a big emotional milestone in the next 24 months.`
+            ];
+
+            document.getElementById('final-score').innerText = score + "%";
+            document.getElementById('prediction-text').innerText = predictions[Math.floor(Math.random()*predictions.length)];
+            
+            // WA Share
+            const waMsg = encodeURIComponent(`OMG! 😱 AI Predicted my 2026 Future with ${n2}!\nResult: ${score}% ❤️\nCheck yours here: ${window.location.href}`);
+            document.getElementById('whatsapp-link').href = "https://api.whatsapp.com/send?text=" + waMsg;
+
+            document.getElementById('scan-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+
+            // Popunder trigger after delay
+            setTimeout(() => {
+                let script = document.createElement('script');
+                script.src = "https://pl28721831.effectivegatecpm.com/1c/b1/38/1cb138209d61c0fae7baad1c3b2c9d7b.js";
+                document.body.appendChild(script);
+            }, 3000);
+        }
+
+        function reveal() {
+            document.getElementById('blur-area').classList.add('revealed');
+            document.getElementById('unlock-btn').style.display = 'none';
+            document.getElementById('whatsapp-link').style.display = 'flex';
+            document.getElementById('result-header').innerText = "Destiny Revealed! ✨";
+        }
+    </script>
+</body>
+</html>
